@@ -1,0 +1,53 @@
+{
+  "name": "generator-tm",
+  "version": "0.0.0",
+  "description": "Scaffold out a Trek.js module",
+  "license": "MIT",
+  "repository": "trekjs/generator-tm",
+  "author": {
+    "name": "Fangdun Cai",
+    "email": "cfddream@gmail.com",
+    "url": "fundon.me"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "plugin",
+    "boilerplate",
+    "template",
+    "scaffold",
+    "trek",
+    "module",
+    "node_module",
+    "trek-module",
+    "init"
+  ],
+  "dependencies": {
+    "humanize-url": "^1.0.1",
+    "normalize-url": "^1.2.0",
+    "superb": "^1.1.3",
+    "underscore.string": "^3.0.3",
+    "yeoman-generator": "^0.24.1"
+  },
+  "devDependencies": {
+    "ava": "0",
+    "pify": "2",
+    "xo": "0",
+    "yeoman-assert": "2",
+    "yeoman-test": "1"
+  },
+  "xo": {
+    "esnext": true,
+    "ignores": [
+      "app/templates/**"
+    ]
+  }
+}
