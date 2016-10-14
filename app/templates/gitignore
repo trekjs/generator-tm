@@ -1,3 +1,10 @@
-node_modules<% if (nyc) { %>
+node_modules
 .nyc_output
-coverage<% } %>
+coverage
+.DS_Store
+*.swp
+node_modules
+npm-debug.log
+coverage
+.nyc_output
+*-v8.log

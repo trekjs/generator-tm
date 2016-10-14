@@ -8,39 +8,89 @@
     "name": "<%= name %>",
     "email": "<%= email %>",
     "url": "<%= humanizedWebsite %>"
-  },<% if (cli) { %>
-  "bin": "cli.js",<% } %>
+  },
   "engines": {
     "node": ">=6"
-  },
-  "scripts": {
-    "test": "xo && <% if (nyc) { %>nyc <% } %>ava"
   },
   "files": [
     "index.js"<% if (cli) { %>,
     "cli.js"<% } %>
   ],
-  "keywords": [<% if (cli) { %>
-    "cli-app",
-    "cli",<% } %>
-    ""
-  ],
+  "scripts": {
+    "lint": "xo",
+    "test": "xo && nyc ava --no-cache -r babel-register -c 5",
+    "test:watch": "xo && nyc ava -r babel-register --watch"
+  },<% if (cli) { %>
+  "bin": "cli.js",<% } %>
+  "main": "lib/index.js",
   "dependencies": {<% if (cli) { %>
     "meow": "^3.7.0"
   <% } %>},
   "devDependencies": {
-    "ava": "^0.15.2",<% if (coveralls) { %>
-    "coveralls": "^2.11.12",<% } %><% if (nyc) { %>
-    "nyc": "^7.1.0",<% } %>
-    "xo": "^0.16.0"
+    "ava": "0.6",
+    "babel-plugin-transform-async-to-generator": "6",
+    "babel-plugin-transform-es2015-modules-commonjs": "6",
+    "babel-preset-es2016": "6",
+    "babel-register": "6",
+    "nyc": "8.3",
+    "request": "2",
+    "request-promise": "4",
+    "trek-engine": "0.5",
+    "xo": "0.17"
+  },
+  "babel": {
+    "plugins": [
+      "transform-async-to-generator",
+      "transform-es2015-modules-commonjs"
+    ],
+    "presets": [
+      "es2016"
+    ]
   },
   "xo": {
-    "esnext": true
-  }<% if (coveralls) { %>,
+    "esnext": true,
+    "envs": [
+      "node",
+      "es6"
+    ],
+    "semicolon": false,
+    "space": true,
+    "ignores": [
+    ],
+    "rules": {
+      "curly": 0,
+      "import/no-dynamic-require": 0,
+      "import/no-named-as-default": 0,
+      "max-lines": 0,
+      "no-warning-comments": [
+        "error",
+        {
+          "terms": [
+            "todo",
+            "fixme"
+          ],
+          "location": "anywhere"
+        }
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always",
+        {
+          "arraysInObjects": true,
+          "objectsInObjects": true
+        }
+      ],
+      "space-before-function-paren": [
+        2,
+        "always"
+      ],
+      "yoda": 0
+    }
+  },
   "nyc": {
     "reporter": [
       "lcov",
       "text"
     ]
-  }<% } %>
+  }
 }

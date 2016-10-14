@@ -5,7 +5,8 @@ node_js:
 
 script:
   - npm test
-after_script:<% if (coveralls) { %>
-  - 'cat coverage/lcov.info | ./node_modules/.bin/coveralls'<% } %>
+after_script:<% if (coverage == 'coveralls') { %>
+  - npm install coveralls
+  - 'cat coverage/lcov.info | ./node_modules/.bin/coveralls'<% } else if (coverage == 'codecov') { %>
   - npm install codecov
-  - ./node_modules/.bin/codecov
+  - ./node_modules/.bin/codecov <% } %>

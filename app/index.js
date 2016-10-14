@@ -8,6 +8,7 @@ const _s = require('underscore.string')
 const moduleName = require('./module-name')
 
 module.exports = class extends yeoman.Base {
+
   constructor (a, b) {
     super(a, b)
 
@@ -112,4 +113,5 @@ module.exports = class extends yeoman.Base {
   install () {
     this.installDependencies({ bower: false })
   }
+
 }
