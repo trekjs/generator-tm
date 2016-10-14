@@ -66,8 +66,7 @@ module.exports = class extends yeoman.Base {
       message: 'Upload coverage to codecov.io or coveralls.io?',
       type: 'list',
       default: 'codecov',
-      choices: ['codecov', 'coveralls'],
-      when: () => Boolean(this.options.coverage)
+      choices: ['codecov', 'coveralls']
     }]).then(props => {
       const or = (option, prop) => this.options[option] === undefined ? props[prop || option] : this.options[option]
 
