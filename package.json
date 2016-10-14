@@ -1,6 +1,6 @@
 {
   "name": "generator-tm",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Scaffold out a Trek.js module",
   "repository": "trekjs/generator-tm",
   "license": "MIT",
@@ -53,6 +53,7 @@
     "semicolon": false,
     "space": true,
     "ignores": [
+      "app/templates/**"
     ],
     "rules": {
       "curly": 0,

@@ -9,7 +9,7 @@ let generator
 
 test.beforeEach(async () => {
   await pify(helpers.testDirectory)(path.join(__dirname, 'temp'))
-  generator = helpers.createGenerator('nm:app', ['../app'], null, { skipInstall: true })
+  generator = helpers.createGenerator('tm:app', ['../app'], null, { skipInstall: true })
 })
 
 test.serial('generates expected files', async () => {
@@ -60,8 +60,7 @@ test.serial('nyc option', async () => {
     githubUsername: 'test',
     website: 'test.com',
     cli: false,
-    nyc: true,
-    coveralls: false
+    coverage: 'codecov'
   })
 
   await pify(generator.run.bind(generator))()
@@ -69,11 +68,10 @@ test.serial('nyc option', async () => {
   assert.noFile('cli.js')
   assert.fileContent('.gitignore', /\.nyc_output/)
   assert.fileContent('.gitignore', /coverage/)
-  assert.fileContent('package.json', /"xo && nyc ava"/)
+  assert.fileContent('package.json', /xo && nyc ava/)
   assert.fileContent('package.json', /"nyc": "/)
-  assert.noFileContent('package.json', /"coveralls":/)
-  assert.noFileContent('package.json', /"lcov"/)
-  assert.noFileContent('.travis.yml', /coveralls/)
+  assert.fileContent('package.json', /"lcov"/)
+  assert.fileContent('.travis.yml', /codecov/)
 })
 
 test.serial('coveralls option', async () => {
@@ -82,8 +80,7 @@ test.serial('coveralls option', async () => {
     githubUsername: 'test',
     website: 'test.com',
     cli: false,
-    nyc: true,
-    coveralls: true
+    coverage: 'coveralls'
   })
 
   await pify(generator.run.bind(generator))()
@@ -91,9 +88,8 @@ test.serial('coveralls option', async () => {
   assert.noFile('cli.js')
   assert.fileContent('.gitignore', /\.nyc_output/)
   assert.fileContent('.gitignore', /coverage/)
-  assert.fileContent('package.json', /"xo && nyc ava"/)
+  assert.fileContent('package.json', /xo && nyc ava/)
   assert.fileContent('package.json', /"nyc": "/)
-  assert.fileContent('package.json', /"coveralls":/)
   assert.fileContent('package.json', /"lcov"/)
   assert.fileContent('.travis.yml', /coveralls/)
 })
@@ -111,8 +107,7 @@ test.serial('prompts for description', async () => {
     githubUsername: 'test',
     website: 'test.com',
     cli: false,
-    nyc: true,
-    coveralls: true
+    coverage: 'codecov'
   })
 
   await pify(generator.run.bind(generator))()
@@ -127,8 +122,7 @@ test.serial('defaults to superb description', async () => {
     githubUsername: 'test',
     website: 'test.com',
     cli: false,
-    nyc: true,
-    coveralls: true
+    coverage: 'codecov'
   })
 
   await pify(generator.run.bind(generator))()
