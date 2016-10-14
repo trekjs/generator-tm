@@ -28,7 +28,7 @@
     "node": ">=6"
   },
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && nyc ava"
   },
   "dependencies": {
     "humanize-url": "^1.0.1",
@@ -84,5 +84,11 @@
       ],
       "yoda": 0
     }
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
   }
 }
