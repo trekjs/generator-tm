@@ -13,7 +13,7 @@ $ npm install <%= moduleName %> --save
 ## Usage
 
 ```js
-const <%= camelModuleName %> = require('<%= modu
+const <%= camelModuleName %> = require('<%= moduleName %>')
 
 <%= camelModuleName %>('unicorns')
 //=> 'unicorns & rainbows'
