@@ -4,6 +4,8 @@
 
 Optionally with a [CLI](http://en.wikipedia.org/wiki/Command-line_interface).
 
+Forked from [generator-nm](https://github.com/sindresorhus/generator-nm).
+
 
 ## Install
 
