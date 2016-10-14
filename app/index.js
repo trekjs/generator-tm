@@ -51,6 +51,11 @@ module.exports = class extends yeoman.Base {
       validate: x => x.length > 0 ? true : 'You have to provide a website URL',
       filter: x => normalizeUrl(x)
     }, {
+      name: 'twitter',
+      message: 'What is your Twitterr username?',
+      store: true,
+      default: 'fundon'
+    }, {
       name: 'cli',
       message: 'Do you need a CLI?',
       type: 'confirm',
@@ -80,6 +85,7 @@ module.exports = class extends yeoman.Base {
         name: this.user.git.name(),
         email: this.user.git.email(),
         website: props.website,
+        twitter: props.twitter,
         humanizedWebsite: humanizeUrl(props.website),
         cli,
         coverage
