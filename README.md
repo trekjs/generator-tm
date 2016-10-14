@@ -49,8 +49,9 @@ Use [chalk](https://github.com/sindresorhus/chalk) if you want colors in your CL
 
 ## Badges
 
-![](https://img.shields.io/badge/license-MIT-blue.svg)
 [![Build Status](https://travis-ci.org/trekjs/generator-tm.svg?branch=master)](https://travis-ci.org/trekjs/generator-tm)
+[![codecov](https://codecov.io/gh/trekjs/generator-tm/branch/master/graph/badge.svg)](https://codecov.io/gh/trekjs/generator-tm)
+![](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ---
 
