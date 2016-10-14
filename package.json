@@ -2,22 +2,13 @@
   "name": "generator-tm",
   "version": "0.0.0",
   "description": "Scaffold out a Trek.js module",
-  "license": "MIT",
   "repository": "trekjs/generator-tm",
+  "license": "MIT",
   "author": {
     "name": "Fangdun Cai",
     "email": "cfddream@gmail.com",
     "url": "fundon.me"
   },
-  "engines": {
-    "node": ">=6"
-  },
-  "scripts": {
-    "test": "xo && ava"
-  },
-  "files": [
-    "app"
-  ],
   "keywords": [
     "yeoman-generator",
     "plugin",
@@ -30,6 +21,15 @@
     "trek-module",
     "init"
   ],
+  "files": [
+    "app"
+  ],
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
   "dependencies": {
     "humanize-url": "^1.0.1",
     "normalize-url": "^1.2.0",
@@ -38,16 +38,50 @@
     "yeoman-generator": "^0.24.1"
   },
   "devDependencies": {
-    "ava": "0",
+    "ava": "0.16",
     "pify": "2",
-    "xo": "0",
+    "xo": "0.17",
     "yeoman-assert": "2",
     "yeoman-test": "1"
   },
   "xo": {
     "esnext": true,
+    "envs": [
+      "node",
+      "es6"
+    ],
+    "semicolon": false,
+    "space": true,
     "ignores": [
-      "app/templates/**"
-    ]
+    ],
+    "rules": {
+      "curly": 0,
+      "import/no-dynamic-require": 0,
+      "import/no-named-as-default": 0,
+      "max-lines": 0,
+      "no-warning-comments": [
+        "error",
+        {
+          "terms": [
+            "todo",
+            "fixme"
+          ],
+          "location": "anywhere"
+        }
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always",
+        {
+          "arraysInObjects": true,
+          "objectsInObjects": true
+        }
+      ],
+      "space-before-function-paren": [
+        2,
+        "always"
+      ],
+      "yoda": 0
+    }
   }
 }

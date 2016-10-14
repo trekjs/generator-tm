@@ -1,0 +1,46 @@
+{
+  "name": "<%= moduleName %>",
+  "version": "0.0.0",
+  "description": "<%= moduleDescription %>",
+  "license": "MIT",
+  "repository": "<%= githubUsername %>/<%= repoName %>",
+  "author": {
+    "name": "<%= name %>",
+    "email": "<%= email %>",
+    "url": "<%= humanizedWebsite %>"
+  },<% if (cli) { %>
+  "bin": "cli.js",<% } %>
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "test": "xo && <% if (nyc) { %>nyc <% } %>ava"
+  },
+  "files": [
+    "index.js"<% if (cli) { %>,
+    "cli.js"<% } %>
+  ],
+  "keywords": [<% if (cli) { %>
+    "cli-app",
+    "cli",<% } %>
+    ""
+  ],
+  "dependencies": {<% if (cli) { %>
+    "meow": "^3.7.0"
+  <% } %>},
+  "devDependencies": {
+    "ava": "^0.15.2",<% if (coveralls) { %>
+    "coveralls": "^2.11.12",<% } %><% if (nyc) { %>
+    "nyc": "^7.1.0",<% } %>
+    "xo": "^0.16.0"
+  },
+  "xo": {
+    "esnext": true
+  }<% if (coveralls) { %>,
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  }<% } %>
+}
